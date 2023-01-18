@@ -7,7 +7,10 @@ export default ({ env }) => ({
       database: env('DATABASE_NAME', 'postgres'),
       user: env('DATABASE_USERNAME', 'jose__bautista'),
       password: env('DATABASE_PASSWORD', 'admin'),
-      ssl: env.bool('DATABASE_SSL', false),
+      ssl: {
+        ca: env('DATABASE_CA')
+      },
     },
+    debug: false,
   },
 });
